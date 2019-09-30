@@ -18,32 +18,207 @@
     under the License.
 -->
 <html>
-    <head>
+    <head>        
+
+        <link rel = "stylesheet" href = "./css/jquery.mobile-1.4.5.min.css">
+        <script src = "./js/jquery.min.js"></script>
+        <script src = "./js/jquery.mobile-1.4.5.min.js"></script>
+        
         <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
+             Customize this policy to fit your own app's needs. For more guidance, see:
+             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+             Some notes:
+             * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+             * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+             * Enable inline JS: add 'unsafe-inline' to default-src
+
+             <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <!-- 
+             <link rel="stylesheet" type="text/css" href="css/index.css">
+        -->
         <title>Hello World</title>
+
+
+        <style>
+         body {
+             font-family: Arial, Helvetica, sans-serif;
+         }
+
+         .mobile-container {
+             max-width: 480px;
+             margin: auto;
+             background-color: #555;
+             height: 500px;
+             color: white;
+             border-radius: 10px;
+         }
+
+         .topnav {
+             overflow: hidden;
+             background-color: #333;
+             position: relative;
+         }
+
+         .topnav #myLinks {
+             display: none;
+         }
+
+         .topnav a {
+             color: white;
+             padding: 14px 16px;
+             text-decoration: none;
+             font-size: 17px;
+             display: block;
+         }
+
+         .topnav a.icon {
+             background: black;
+             display: block;
+             position: absolute;
+             right: 0;fa-bars;
+             top: 0;
+         }
+
+         .topnav a:hover {
+             background-color: #ddd;
+             color: black;
+         }
+
+         .active {
+             background-color: #4CAF50;
+             color: white;
+         }
+        </style>
     </head>
+
     <body>
+
         <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+
+            <div data-role = "page" id = "home">
+                <!-- Top Navigation Menu -->
+                <div class="topnav">
+                    <a href="#home" class="active">Logo</a>
+                    <div id="menuLinks">
+                        <a href="#cad_cuidador">Cadastrar Cuidador</a>
+                        <a href="#cad_params_contato">Cadastrar Parametros de Contato</a>
+                        <a href="#contato">Contato</a>
+                        <a href="#sobre">Sobre</a>
+                        <a href="#page_btns">Botoes</a>
+                    </div>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+
+                <div data-role = "header">
+                    <h1>Contate-me Antes :))</h1>
+                </div>
+                <div data-role = "main" class = "ui-content">
+                    <h2>Cuidadores Cadastrados</h2>
+                    <h2>Parametros para contato</h2>
+                </div>
+                <div data-role = "footer">
+                    <h1>Footer Text</h1>
+                </div>
             </div>
-        </div>
+
+
+            <div data-role = "page" id = "cad_cuidador">
+                <div data-role = "header">
+                    <h1>Contate-me Antes :))</h1>
+                    <a href="#home"  class = "ui-btn ui-btn-icon-left ui-icon-arrow-l">Voltar</a>
+                </div>
+
+                <div data-role="main" class = "ui-content">
+                </div>
+            </div>
+
+            
+
+            <div data-role = "page" id = "cad_params_contato">
+                <div data-role = "header">
+                    <h1>Contate-me Antes :))</h1>
+                    <a href="#home"  class = "ui-btn ui-btn-icon-left ui-icon-arrow-l">Voltar</a>
+                </div>
+
+                <div data-role="main" class = "ui-content">
+                </div>
+            </div>
+
+            
+            <div data-role = "page" id = "contato">
+                <div data-role = "header">
+                    <h1>Contate-me Antes :))</h1>
+                    <a href="#home"  class = "ui-btn ui-btn-icon-left ui-icon-arrow-l">Voltar</a>
+                </div>
+
+                <div data-role="main" class = "ui-content">
+                </div>
+            </div>
+
+            
+            <div data-role = "page" id = "sobre">
+                <div data-role = "header">
+                    <h1>Contate-me Antes :))</h1>
+                    <a href="#home"  class = "ui-btn ui-btn-icon-left ui-icon-arrow-l">Voltar</a>
+                </div>
+
+                <div data-role="main" class = "ui-content">
+                </div>
+            </div>
+
+            
+            
+            
+            <div data-role = "page" id = "page_btns">
+                <div data-role = "header">
+                    <h1>Contate-me Antes :))</h1>
+                    <a href="#home"  class = "ui-btn ui-btn-icon-left ui-icon-arrow-l">Voltar</a>
+                </div>
+
+                <div data-role="main" class = "ui-content">
+                    
+                    
+                    <a href = "#" class = "ui-btn ui-btn-icon-left ui-icon-grid">Grid Button</a>
+                    <button class = "ui-btn ui-btn-icon-right ui-icon-arrow-d-r">arrow-d-r</button>
+                    <button class = "ui-btn ui-btn-icon-left ui-icon-arrow-l">arrow-l</button>
+                    <button class = "ui-btn ui-btn-icon-left ui-icon-arrow-r">arrow-r</button>
+                    <button class = "ui-btn ui-btn-icon-left ui-icon-arrow-u">arrow-u</button>
+                    <button class = "ui-btn ui-btn-icon-left ui-icon-arrow-u-l">arrow-u-l</button>
+                    <button class = "ui-btn ui-btn-icon-left ui-icon-arrow-u-r">arrow-u-r</button>
+                    <button class = "ui-btn ui-btn-icon-left ui-icon-audio">audio</button>
+                    <button class = "ui-btn ui-btn-icon-left ui-icon-calendar">calendar</button>
+                    <button class = "ui-btn ui-btn-icon-left ui-icon-camera">camera</button>
+                    <button class = "ui-btn ui-btn-icon-left ui-icon-carat-l">carat-l</button>
+                    <button class = "ui-btn ui-btn-icon-left ui-icon-carat-r">carat-r</button>
+                    <button class = "ui-btn ui-shadow ui-corner-all ui-btn-icon-left 
+                                     ui-icon-check">check</button>
+                    <button class = "ui-btn ui-shadow ui-corner-all ui-btn-icon-left 
+                                     ui-icon-clock">clock</button>
+                    <button class = "ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-eye">
+                        eye</button>
+                </div><!-- <div data-role="main" class = "ui-content">  -->
+            </div><!-- <div data-role = "page" id = "page_btns"> -->
+        </div><!-- <div class="app"> -->
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script>
+         function myFunction() {
+             var x = document.getElementById("menuLinks");
+             if (x.style.display === "block") {
+                 x.style.display = "none";
+             } else {
+                 x.style.display = "block";
+             }
+         }
+        </script>
+
     </body>
 </html>

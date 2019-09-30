@@ -1,3 +1,5 @@
+platforms
 platforms/android/*
 plugins/*
 node_modules/*
+*.zip
